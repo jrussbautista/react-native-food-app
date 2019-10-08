@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import {
   View,
   Text,
@@ -13,12 +14,16 @@ import color from '../utils/colors';
 import Tab from '../components/DishDetails/Tab';
 import Ingredients from '../components/DishDetails/Ingredients';
 import Reviews from '../components/DishDetails/Reviews';
+import {toggleFavorites} from '../store/actions/favorites';
 
 const DishDetails = ({navigation}) => {
   const [openTab, setOpenTab] = useState('Details');
   const dishId = navigation.getParam('id');
   let dish = dishes.filter(dish => dish.id === dishId);
   dish = dish[0];
+  const dispatch = useDispatch();
+  const favorites = useSelector(state => state.favorites.datas);
+  console.log(favorites);
 
   return (
     <View style={styles.container}>
@@ -55,9 +60,15 @@ const DishDetails = ({navigation}) => {
             style={[styles.btn, {backgroundColor: '#E65100', flex: 11}]}>
             <Text style={styles.btnText}> Get It </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.btn]}>
+          <TouchableOpacity
+            style={[styles.btn]}
+            onPress={() => dispatch(toggleFavorites(dish.id))}>
             <Text style={styles.btnText}>
-              <Icon name="ios-heart-empty" size={26} color="#E65100" />
+              {favorites.find(fave => fave === dish.id) ? (
+                <Icon name="ios-heart" size={26} color="#E65100" />
+              ) : (
+                <Icon name="ios-heart-empty" size={26} color="#E65100" />
+              )}
             </Text>
           </TouchableOpacity>
         </View>
