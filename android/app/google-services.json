@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "927226931355",
+    "firebase_url": "https://foody-app-7c413.firebaseio.com",
+    "project_id": "foody-app-7c413",
+    "storage_bucket": "foody-app-7c413.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:927226931355:android:7576fae76f06ec08b0be3e",
+        "android_client_info": {
+          "package_name": "com.foodyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "927226931355-21pkvh359bkgu03gacpooei1ntg7mh61.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCnbIwNkWPlI5QBxM-s49oeHhIc-ZMhSyE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "927226931355-21pkvh359bkgu03gacpooei1ntg7mh61.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

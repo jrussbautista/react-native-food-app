@@ -23,8 +23,6 @@ const DishDetails = ({navigation}) => {
   dish = dish[0];
   const dispatch = useDispatch();
   const favorites = useSelector(state => state.favorites.datas);
-  console.log(favorites);
-
   return (
     <View style={styles.container}>
       <ScrollView>

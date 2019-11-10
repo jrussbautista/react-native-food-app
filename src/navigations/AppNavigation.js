@@ -1,6 +1,6 @@
-import {createAppContainer} from 'react-navigation';
+import {createAppContainer, createSwitchNavigator} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
-import {DishDetails, Categories, CategoryDetails} from '../screens';
+import {DishDetails, Categories, CategoryDetails, Login} from '../screens';
 import TabNavigation from './TabNavigation';
 
 const MainNavigator = createStackNavigator({
@@ -10,6 +10,15 @@ const MainNavigator = createStackNavigator({
   CategoryDetails,
 });
 
-const AppNavigation = createAppContainer(MainNavigator);
+const AuthStack = createStackNavigator({
+  Login,
+});
+
+const SwitchNavigator = createSwitchNavigator({
+  AuthStack,
+  MainNavigator,
+});
+
+const AppNavigation = createAppContainer(SwitchNavigator);
 
 export default AppNavigation;

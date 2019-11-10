@@ -1,6 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
-import {Home, Favorites, Search} from '../screens';
+import {Home, Favorites, Search, Account} from '../screens';
 import color from '../utils/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import LogoTitle from '../components/MenuIcons/LogoTitle';
@@ -10,6 +10,7 @@ const TabNavigation = createBottomTabNavigator(
     Home,
     Favorites,
     Search,
+    Account,
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -23,6 +24,8 @@ const TabNavigation = createBottomTabNavigator(
           iconName = `md-heart`;
         } else if (routeName === 'Search') {
           iconName = `ios-search`;
+        } else if (routeName === 'Account') {
+          iconName = `ios-person`;
         }
         return <IconComponent name={iconName} size={25} color={tintColor} />;
       },

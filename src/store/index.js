@@ -1,10 +1,9 @@
-import {createStore, combineReducers} from 'redux';
-import favorites from './reducers/favorites';
+import {createStore, applyMiddleware} from 'redux';
+import ReduxThunk from 'redux-thunk';
+import {persistStore} from 'redux-persist';
+import rootReducer from './rootReducer';
 
-const rootReducer = combineReducers({
-  favorites,
-});
+const store = createStore(rootReducer, applyMiddleware(ReduxThunk));
+const persistor = persistStore(store);
 
-const store = createStore(rootReducer);
-
-export default store;
+export {store, persistor};

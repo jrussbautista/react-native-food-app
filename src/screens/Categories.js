@@ -1,15 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   View,
   Text,
   StyleSheet,
-  ScrollView,
   ImageBackground,
   FlatList,
   TouchableOpacity,
+  ActivityIndicator,
 } from 'react-native';
-import {categories} from '../datas';
+import {useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 import NavigationService from '../navigations/NavigationService';
+import {fetchCategories} from '../store/categories/categories.action';
 
 const AllCategories = ({imageUrl, name, id}) => {
   return (
@@ -27,13 +29,24 @@ const AllCategories = ({imageUrl, name, id}) => {
 };
 
 const Categories = ({navigation}) => {
+  const {datas, isLoading} = useSelector(state => state.categories);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchCategories());
+  }, []);
+
   return (
     <View style={styles.container}>
-      <FlatList
-        data={categories}
-        renderItem={({item}) => <AllCategories {...item} />}
-        keyExtractor={item => `category-item-${item.id}`}
-      />
+      {isLoading ? (
+        <ActivityIndicator />
+      ) : (
+        <FlatList
+          data={datas}
+          renderItem={({item}) => <AllCategories {...item} />}
+          keyExtractor={item => `category-item-${item.id}`}
+        />
+      )}
     </View>
   );
 };

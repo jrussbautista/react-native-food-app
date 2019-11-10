@@ -5,6 +5,8 @@ import Favorites from './Favorites';
 import Settings from './Settings';
 import CategoryDetails from './CategoryDetails';
 import Search from './Search';
+import Account from './Account';
+import Login from './Login';
 
 export {
   Home,
@@ -14,4 +16,6 @@ export {
   Settings,
   CategoryDetails,
   Search,
+  Account,
+  Login,
 };

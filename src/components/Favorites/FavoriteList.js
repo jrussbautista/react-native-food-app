@@ -12,7 +12,7 @@ import color from '../../utils/colors';
 import Icon from 'react-native-vector-icons/Ionicons';
 import NavigationService from '../../navigations/NavigationService';
 import {useDispatch} from 'react-redux';
-import {toggleFavorites} from '../../store/actions/favorites';
+import {toggleFavorites} from '../../store/favorites/favorites.action';
 
 const FaveItem = ({imageURL, title, id}) => {
   const dispatch = useDispatch();
@@ -53,7 +53,9 @@ const FavoriteList = ({favorites}) => {
             style={styles.emptyImg}
           />
           <Text style={styles.emptyText}> Your favorites is empty </Text>
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={() => NavigationService.navigate('Home')}>
             <Text style={styles.btnText}>Go Add Now </Text>
           </TouchableOpacity>
         </View>

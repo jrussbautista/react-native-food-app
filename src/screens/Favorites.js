@@ -6,6 +6,7 @@ import {dishes} from '../datas';
 
 const Favorites = () => {
   const allFavorites = useSelector(state => state.favorites.datas);
+  
   let favorites = [];
   allFavorites.forEach(fave => {
     dishes.filter(dish => {

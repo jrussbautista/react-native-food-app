@@ -10,6 +10,9 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@react-native-firebase/app": "^6.0.3",
+    "@react-native-firebase/auth": "^6.0.3",
+    "@react-native-firebase/firestore": "^6.0.3",
     "react": "16.9.0",
     "react-native": "0.61.2",
     "react-native-gesture-handler": "^1.4.1",
@@ -19,7 +22,9 @@
     "react-navigation-stack": "^1.9.3",
     "react-navigation-tabs": "^2.5.5",
     "react-redux": "^7.1.1",
-    "redux": "^4.0.4"
+    "redux": "^4.0.4",
+    "redux-persist": "^6.0.0",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@babel/core": "^7.6.2",
